@@ -24,32 +24,42 @@ router.put('/addNote', async (req,res) => {
     );
 })
 //Update note
-router.put('/editNote', async (req,res) => {
-    console.log(req.body)
-    User.updateOne(
-        { _id: req.body.userId, "notes._id": req.body.noteId },
-        { $set: {
-            "notes.$.title": req.body.title,
-            "notes.$.description": req.body.description
-            }
-        },
-        function(err, result) {
-            if (err) {
-            res.send(err);
-            } else {
-            res.send(result);
-            }
+router.put('/updateNote', async (req,res) => {
+    User.updateOne({
+        _id: req.body.userId
+    }, {
+        $set: {
+            'collections.$[i].notes.$[j].title': req.body.title,
+            'collections.$[i].notes.$[j].description': req.body.description,
         }
+    }, {
+        arrayFilters: [{
+            'i._id': req.body.collectionId
+        }, {
+            'j._id': req.body.noteId
+        }]
+    },
+    function(err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result)
+        }
+    }
     );
 })
 //Delete note
 router.put('/deleteNote', async (req,res) => {
     console.log(req.body)
     User.updateOne(
-      { _id: req.body.userId, 'collections._id': req.body.collectionId },
-      { $pull: { 'collections.$.notes': {_id: req.body.noteId} } },
-          {multi: true},
-      function(err, result) {
+        { _id: req.body.userId, 'collections._id': req.body.collectionId },
+        { $pull: {
+          'collections.$.notes': { 
+              _id: req.body.noteId}
+            } 
+        },
+        {multi: true},
+        function(err, result) {
         if (err) {
           res.send(err);
         } else {

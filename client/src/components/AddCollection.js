@@ -23,7 +23,8 @@ export default function AddCollection(props) {
         return `${userData.name.slice(0,2)}-${Math.floor(Math.random() * 100000)}`;
     }
 
-    const createCollection = () => {
+    const createCollection = (e) => {
+        e.preventDefault();
         //Validation
         if (title.length < 1) {
             return setTitleError(true);
@@ -60,18 +61,18 @@ export default function AddCollection(props) {
     }
 
     return (
-        <div className="add-collection__container">
+        <form className="add-collection__container">
             {titleError ?
-                <TextField label="Title" variant="filled" className="input" error helperText="Cannot be empty"
+                <TextField label="Title" variant="filled" className="input" error helperText="Cannot be empty" autoFocus
                     value={title} onChange={(e) => setTitle(e.target.value)} />
                 :
-                <TextField label="Title" variant="filled" className="input"
+                <TextField label="Title" variant="filled" className="input" autoFocus
                     value={title} onChange={(e) => setTitle(e.target.value)} />
             }
             <div className="actions">
                 <GiCancel className="icon-cancel" onClick={() => props.setCollectionFunctionView('')} />
-                <FaCheckCircle className="icon-accept" onClick={createCollection} />
+                <button onClick={(e) => createCollection(e)} type="submit"><FaCheckCircle className="icon-accept" /></button>
             </div>
-        </div>
+        </form>
     )
 }

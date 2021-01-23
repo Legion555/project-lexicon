@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+.note-edit {
+    width: calc(100% - 550px);
+    padding: 25px;
+    .input {
+        width: 100%;
+        margin-bottom: 25px;
+        p {
+            white-space: pre-line;
+          }
+    }
+  }

@@ -22,6 +22,7 @@ export default function NavigationMain(props) {
 
     const selectNote = (noteData) => {
         dispatch(updateNoteData(noteData));
+        props.setNoteView('content');
     }
 
     const deleteCollection = () => {
@@ -40,6 +41,7 @@ export default function NavigationMain(props) {
             .then(res => {
                 dispatch(updateUserData(res.data[0]));
                 dispatch(updateCollectionData({}));
+                dispatch(updateNoteData({}));
             })
             .catch(err => {
                 console.log("Error: " + err);

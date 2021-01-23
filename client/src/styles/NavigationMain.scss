@@ -4,7 +4,7 @@
   width: 250px; height: 100%;
   display: flex; flex-direction: column; justify-content: space-between;
   border-right: 1px solid #777;
-  background: #ddd;
+  background: #bbb;
   .top {
     .profile__container {
       width: 100%;
@@ -30,6 +30,7 @@
         height: 50px;
         display: flex; justify-content: center; align-items: center;
         background: #0F1F2F;
+        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
         .icon {
             font-size: 40px;
             color: #157347;
@@ -39,6 +40,10 @@
         }
         &:hover {
           cursor: pointer;
+          background: $color-button-success;
+          .icon {
+            color: #0F1F2F;
+          }
         }
     }
     .note__link {
@@ -48,20 +53,16 @@
       overflow: hidden;
       border-bottom: 1px solid #777;
       &:hover {
-        background: #aaa;
+        background: #888;
         cursor: pointer;
       }
       .title {
         font-size: 18px;
         white-space: pre-line;
       }
-      .icon-delete {
-        font-size: 18px;
-        color: $color-button-danger;
-      }
     }
     .active {
-      background: #aaa;
+      background: #888;
     }
   }
   .bottom {
@@ -70,6 +71,9 @@
     .icon-logout {
       font-size: 32px;
       color: #BB2D3B;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

@@ -7,6 +7,7 @@ import { updateCollectionData, updateUserData } from '../actions';
 //Icons
 import { FaCheckCircle } from 'react-icons/fa';
 import { GiCancel } from 'react-icons/gi';
+//Material
 import TextField from '@material-ui/core/TextField';
 
 
@@ -26,7 +27,8 @@ export default function AddNote(props) {
         return `${userData.name.slice(0,3)}-${collectionData.title.slice(0,3)}-${Math.floor(Math.random() * 100000)}`;
     }
 
-    const addNote = () => {
+    const addNote = (e) => {
+        e.preventDefault();
         //Validation
         if (title.length < 1) {
             return setTitleError(true);
@@ -67,7 +69,7 @@ export default function AddNote(props) {
     }
 
     return (
-        <div className="add-note">
+        <form className="add-note">
             <div className="background" onClick={() => props.setNoteFunctionView('false')} ></div>
             <div className="content">
                 <div className="header">
@@ -75,10 +77,10 @@ export default function AddNote(props) {
                 </div>
                 <div className="form">
                     {titleError ?
-                        <TextField label="Title" variant="outlined" className="input" error helperText="Cannot be empty"
+                        <TextField label="Title" variant="outlined" className="input" error helperText="Cannot be empty" autoFocus
                             value={title} onChange={(e) => setTitle(e.target.value)} />
                         :
-                        <TextField label="Title" variant="outlined" className="input"
+                        <TextField label="Title" variant="outlined" className="input" autoFocus
                             value={title} onChange={(e) => setTitle(e.target.value)} />
                     }
                     
@@ -87,9 +89,9 @@ export default function AddNote(props) {
                 </div>
                 <div className="actions">
                     <GiCancel className="icon-cancel" onClick={() => props.setNoteFunctionView('')} />
-                    <FaCheckCircle className="icon-accept" onClick={addNote} />
+                    <button type="submit" onClick={(e) => addNote(e)}><FaCheckCircle className="icon-accept" /></button>
                 </div>  
             </div>
-        </div>
+        </form>
     )
 }

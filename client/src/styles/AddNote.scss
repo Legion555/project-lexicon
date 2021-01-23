@@ -23,12 +23,19 @@
         }
         .actions {
             display: flex; justify-content: space-between;
-            .icon-cancel {
+            button {
+                background: none; border: none;
+            }
+            .icon-cancel, .icon-accept {
                 font-size: 40px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .icon-cancel {
                 color: #BB2D3B;
             }
             .icon-accept {
-                font-size: 40px;
                 color: #157347;
             }
         }

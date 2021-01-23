@@ -10,10 +10,24 @@
         font-size: 24px;
       }
       .icon-edit {
+        padding: 10px;
+        font-size: 40px;
+        border: 1px solid rgba(0,0,0,0);
         color: $color-button-primary;
+        &:hover {
+          cursor: pointer;
+          border: 1px solid $color-button-primary;
+        }
       }
       .icon-delete {
+        padding: 10px;
+        font-size: 40px;
+        border: 1px solid rgba(0,0,0,0);
         color: $color-button-danger;
+        &:hover {
+          cursor: pointer;
+          border: 1px solid $color-button-danger;
+        }
       }
     }
     .content__container {

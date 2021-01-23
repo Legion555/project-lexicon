@@ -46,7 +46,7 @@ export default function NoteContent(props) {
     }
 
     const editNote = () => {
-        props.setView('editNote');
+        props.setNoteView('edit');
     }
 
     return (
