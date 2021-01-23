@@ -1,0 +1,29 @@
+@import './variables.scss';
+
+.edit-note {
+    width: 600px;
+    position: absolute; left: 400px;
+    background: #eee;
+    padding: 25px;
+    box-shadow: $shadow-main;
+    .header {
+        margin-bottom: 25px;
+    }
+    .form {
+        .input {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+    }
+    .actions {
+        display: flex; justify-content: space-between;
+        .icon-cancel {
+            font-size: 40px;
+            color: #BB2D3B;
+        }
+        .icon-accept {
+            font-size: 40px;
+            color: #157347;
+        }
+    }
+}

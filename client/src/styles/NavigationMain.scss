@@ -1,0 +1,75 @@
+@import './variables.scss';
+
+.navigation {
+  width: 250px; height: 100%;
+  display: flex; flex-direction: column; justify-content: space-between;
+  border-right: 1px solid #777;
+  background: #ddd;
+  .top {
+    .profile__container {
+      width: 100%;
+      display: flex;
+      padding: 10px 10px 0px 10px;
+      border-bottom: 1px solid #777;
+      .image {
+          font-size: 50px;
+      }
+      .text {
+          padding: 5px;
+          .welcome {
+              font-size: 18px;
+              
+          }
+          .username {
+              font-size: 24px;
+              line-height: 24px;
+          }
+      }
+    }
+    .add-collection__link {
+        height: 50px;
+        display: flex; justify-content: center; align-items: center;
+        background: #0F1F2F;
+        .icon {
+            font-size: 40px;
+            color: #157347;
+        }
+        .text {
+          color: #ddd;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+    }
+    .note__link {
+      max-height: 110px;
+      display: flex; justify-content: space-between;
+      padding: 10px;
+      overflow: hidden;
+      border-bottom: 1px solid #777;
+      &:hover {
+        background: #aaa;
+        cursor: pointer;
+      }
+      .title {
+        font-size: 18px;
+        white-space: pre-line;
+      }
+      .icon-delete {
+        font-size: 18px;
+        color: $color-button-danger;
+      }
+    }
+    .active {
+      background: #aaa;
+    }
+  }
+  .bottom {
+    width: 100%;
+    padding: 5px;
+    .icon-logout {
+      font-size: 32px;
+      color: #BB2D3B;
+    }
+  }
+}
