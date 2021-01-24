@@ -10,4 +10,27 @@
             white-space: pre-line;
           }
     }
+    .actions {
+      display: flex;
+      .button-cancel {
+        color: $color-button-danger;
+        font-size: 32px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .button-submit {
+        margin-left: 20px;
+        padding: 5px 10px;
+        background: $color-button-success;
+        color: #eee;
+        border: 1px solid $color-button-success;
+        border-radius: 10px;
+        &:hover {
+          cursor: pointer;
+          background: #eee;
+          color: $color-button-success;
+        }
+      }
+    }
   }

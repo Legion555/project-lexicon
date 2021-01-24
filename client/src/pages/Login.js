@@ -12,8 +12,8 @@ const Login = () => {
     
     const [errorHandle, setErrorHandle] = React.useState([]);
     //Login
-    const [loginEmail, setLoginEmail] = React.useState('legion@gmail.com');
-    const [loginPassword, setLoginPassword] = React.useState('legion123');
+    const [loginEmail, setLoginEmail] = React.useState('');
+    const [loginPassword, setLoginPassword] = React.useState('');
     //Register
     const [regName, setRegName] = React.useState('');
     const [regEmail, setRegEmail] = React.useState('');
@@ -103,6 +103,30 @@ const Login = () => {
             // }
         })
     }
+    const practiceLogin = (e) => {
+        e.preventDefault();
+        const details = {
+            email: 'practice@gmail.com',
+            password: 'practice123'
+        }
+        axios.post('/api/users/login', details)
+        .then(res => {
+            axios.get('/api/users', {
+                params: {
+                    email: 'practice@gmail.com'
+                }
+            })
+            .then(res => {
+                //set user data
+                dispatch(updateUserData(res.data[0]));
+                //redirect to dashboard
+                dispatch(updateView('dashboard'));
+            })
+            .catch(err => {
+                console.log("Error: " + err);
+            })
+        })
+    }
 
     //Register new user
     const register = (e) => {
@@ -163,6 +187,7 @@ const Login = () => {
                     {errorHandle === 'registered' &&
                     <p>Successfully registered!<br/>Please login.</p>
                     }
+                    <button className="login-practice" onClick={(e) => practiceLogin(e)}>Login with practice account</button>
                 </div>
                 }
                 {authView === 'register' &&

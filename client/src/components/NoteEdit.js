@@ -6,6 +6,7 @@ import { updateCollectionData, updateNoteData, updateUserData } from '../actions
 //styles
 import '../styles/NoteEdit.scss';
 //icons
+import { GiCancel } from 'react-icons/gi';
 //Material
 import TextField from '@material-ui/core/TextField';
 
@@ -65,9 +66,10 @@ export default function NoteEdit(props) {
             }
             <TextField label="Description" multiline rows={6} variant="outlined" className="input"
                         value={description} onChange={(e) => setDescription(e.target.value)} />
-            
-            <button onClick={() => props.setNoteView('content')} >Cancel</button>
-            <button type="submit" onClick={(e) => editNote(e)} >Save</button>
+            <div className="actions">
+                <GiCancel className="button-cancel" onClick={() => props.setNoteView('content')} />
+                <button type="submit" className="button-submit" onClick={(e) => editNote(e)} >Save</button>
+            </div>
         </form>
     )
 }
