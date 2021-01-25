@@ -54,26 +54,24 @@ export default function NavigationMain(props) {
 
     return (
         <div className="navigation-notes">
-            <div className="top">
-                <div className="header">
-                    <p className="text">{collectionData.title}</p>
-                    <FaTrash className="icon-delete" onClick={deleteCollection} />
+            <div className="header">
+                <p className="text">{collectionData.title}</p>
+                <FaTrash className="icon-delete" onClick={deleteCollection} />
+            </div>
+            <div className="add-note__link" onClick={() => setNoteFunctionView('addNote')} >
+                <AiOutlineFileAdd className="icon" /><p className="text">Add note</p>
+            </div>
+            {collectionData.notes && collectionData.notes.map(note => 
+                <div key={note._id} className={note._id === noteData._id ? "note__container active" : "note__container"}
+                    onClick={() => selectNote(note)} >
+                    <p className="title"><AiOutlineFileText /> {note.title}</p>
+                    <p className="description">{note.description.length > 130 ? `${note.description.slice(0, 130)}...` : note.description}</p>
                 </div>
-                {collectionData.notes && collectionData.notes.map(note => 
-                    <div key={note._id} className={note._id === noteData._id ? "note__container active" : "note__container"}
-                        onClick={() => selectNote(note)} >
-                        <p className="title"><AiOutlineFileText /> {note.title}</p>
-                        <p className="description">{note.description.length > 130 ? `${note.description.slice(0, 130)}...` : note.description}</p>
-                    </div>
-                )}
-            </div>
-            <div className="bottom">
-                <AiOutlineFileAdd className="icon-create" onClick={() => setNoteFunctionView('addNote')} />
+            )}
                 
-                {noteFunctionView === 'addNote' &&
+            {noteFunctionView === 'addNote' &&
                 <AddNote setNoteFunctionView={setNoteFunctionView} />
-                }
-            </div>
+            }
         </div>
     )
 }

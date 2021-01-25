@@ -51,10 +51,16 @@ export default function NoteContent(props) {
 
     return (
         <div className="note-content">
-            <div className="actions">
-                <FaPencilAlt className="icon-edit" onClick={editNote} />
-                <FaTrash className="icon-delete" onClick={removeNote} />
+            <div className="top">
+                <div className="breadcrumb">
+                    <p className="text">{collectionData.title} / {noteData.title}</p>
+                </div>
+                <div className="actions">
+                    <FaPencilAlt className="icon-edit" onClick={editNote} />
+                    <FaTrash className="icon-delete" onClick={removeNote} />
+                </div>
             </div>
+            
             <div className="content__container">
                 <h1>{noteData.title}</h1>
                 <p>{noteData.description}</p>

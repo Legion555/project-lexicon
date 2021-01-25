@@ -3,30 +3,39 @@
 .note-content {
     width: calc(100% - 550px);
     padding: 25px;
-    .actions {
-      float: right;
-      .icon-edit, .icon-delete {
-        margin: auto 10px;
-        font-size: 24px;
-      }
-      .icon-edit {
-        padding: 10px;
-        font-size: 40px;
-        border: 1px solid rgba(0,0,0,0);
-        color: $color-button-primary;
-        &:hover {
-          cursor: pointer;
-          border: 1px solid $color-button-primary;
+    .top {
+      height: 50px;
+      display: flex; justify-content: space-between;
+      .breadcrumb {
+        .text {
+          font-size: 18px;
         }
       }
-      .icon-delete {
-        padding: 10px;
-        font-size: 40px;
-        border: 1px solid rgba(0,0,0,0);
-        color: $color-button-danger;
-        &:hover {
-          cursor: pointer;
-          border: 1px solid $color-button-danger;
+      .actions {
+        float: right;
+        .icon-edit, .icon-delete {
+          margin: auto 10px;
+          font-size: 24px;
+        }
+        .icon-edit {
+          padding: 10px;
+          font-size: 40px;
+          border: 1px solid rgba(0,0,0,0);
+          color: $color-button-primary;
+          &:hover {
+            cursor: pointer;
+            border: 1px solid $color-button-primary;
+          }
+        }
+        .icon-delete {
+          padding: 10px;
+          font-size: 40px;
+          border: 1px solid rgba(0,0,0,0);
+          color: $color-button-danger;
+          &:hover {
+            cursor: pointer;
+            border: 1px solid $color-button-danger;
+          }
         }
       }
     }

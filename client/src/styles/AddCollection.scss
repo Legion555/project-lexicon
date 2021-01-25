@@ -4,6 +4,9 @@
     width: 100%;
     .input {
         width: 100%;
+        input {
+            color: $color-light;
+        }
     }
     .actions {
         width: 100%;

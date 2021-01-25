@@ -44,7 +44,7 @@ export default function NavigationMain(props) {
                 </div>
                 <div className="add-collection__link" onClick={() => setCollectionFunctionView('addCollection')}>
                     <AiFillPlusCircle className="icon" />
-                    <h2 className="text">Add Collection</h2>
+                    <p className="text">Add Collection</p>
                 </div>
                 {collectionFunctionView === 'addCollection' &&
                     <AddCollection collectionFunctionView={collectionFunctionView} setCollectionFunctionView={setCollectionFunctionView} />
@@ -52,7 +52,7 @@ export default function NavigationMain(props) {
                 {userData.collections && userData.collections.map(collection =>
                     <div className={collection._id === collectionData._id ? "note__link active" : "note__link"} key={collection._id}
                         onClick={() => selectCollection(collection)} >
-                        <h2 className="title"><AiOutlineFolder /> {collection.title}</h2>
+                        <p className="title"><AiOutlineFolder /> {collection.title}</p>
                         {/* <p>{note.description.length > 130 ? `${note.description.slice(0, 130)}...` : note.description}</p> */}
                     </div>
                 )}
